@@ -11,7 +11,6 @@ import "./App.css";
 // - Deeply animate throughout React component trees via `variants`.
 // https://www.framer.com/docs/component/
 import { motion } from "framer-motion";
-
 // # The layout prop and LayoutGroup
 // Group `motion` components that should perform **layout** animations together.
 // By default, `motion` components with a `layout` prop will attempt to detect
@@ -19,16 +18,28 @@ import { motion } from "framer-motion";
 // But what happens when you have the case that components in different trees
 // affect each other's layout. See: https://www.framer.com/docs/layout-group/
 
-// Warning: resolving scaling issues:
+// ! Warning: resolving scaling issues:
 // Below, the visible problem with `layout` is that by default it animates the
 // position and size of the elements. So for example we want the card's content
 // <div> to animate position, but not the scaling of size. We apply the layout
 // to all elements to `position`. Now that is the allow property animated.
+
+// # Transition
+// A `transition` prop defines how values animate from one state to another. It
+// defines the type of animation used when animating between two values. Below
+// we want to target the `layout` prop with a duration and type of spring.
+// https://www.framer.com/docs/transition/
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="card-wrapper">
-      <motion.div layout className="card" onClick={() => setIsOpen(!isOpen)}>
+      <motion.div
+        layout
+        className="card"
+        transition={{ layout: { duration: 1, type: "spring" } }}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <motion.h2 layout="position">Card motion 🛵</motion.h2>
         {isOpen && (
           <motion.div>
