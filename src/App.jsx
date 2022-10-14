@@ -10,6 +10,14 @@ import "./App.css";
 // - Respond to gestures with animations.
 // - Deeply animate throughout React component trees via `variants`.
 // https://www.framer.com/docs/component/
+
+// # Enter animations (initial prop)
+// When a motion component is first created, it'll automatically animate to the
+// values in `animate` if they're different from those defined in your style or
+// within the `initial` prop. You can set the `initial` prop to false to disable
+// enter animations. For a list of the available props, see the following:
+// https://www.framer.com/docs/component/#props
+
 import { motion } from "framer-motion";
 // # The layout prop and LayoutGroup
 // Group `motion` components that should perform **layout** animations together.
@@ -40,9 +48,14 @@ function App() {
         transition={{ layout: { duration: 1, type: "spring" } }}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <motion.h2 layout="position">Card motion 🛵</motion.h2>
+        <motion.h2 layout="position">Framer motion 🛵</motion.h2>
         {isOpen && (
-          <motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, scale: 0.95 }}
+            transition={{ duration: 1.1 }}
+            className="expand"
+          >
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Reiciendis consequatur sint obcaecati veritatis labore saepe eius
@@ -50,7 +63,7 @@ function App() {
             </p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Reiciendis consequatur sint?
+              Reiciendis sint?
             </p>
           </motion.div>
         )}
