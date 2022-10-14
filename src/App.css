@@ -1,0 +1,17 @@
+.card-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 3rem 5rem;
+  border-radius: 0.5rem;
+}
+
+p {
+  padding-top: 1rem;
+  line-height: 150%;
+}

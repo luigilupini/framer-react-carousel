@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import "./App.css";
 
 // # Motion components
 // There's a `motion` component for every html/svg element, like `motion.div`
@@ -19,14 +19,19 @@ import { motion } from "framer-motion";
 // But what happens when you have the case that components in different trees
 // affect each other's layout. See: https://www.framer.com/docs/layout-group/
 
+// Warning: resolving scaling issues:
+// Below, the visible problem with `layout` is that by default it animates the
+// position and size of the elements. So for example we want the card's content
+// <div> to animate position, but not the scaling of size. We apply the layout
+// to all elements to `position`. Now that is the allow property animated.
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <AppWrapper>
-      <Card as={motion.div} layout onClick={() => setIsOpen(!isOpen)}>
-        <motion.h2>Card motion 🛵</motion.h2>
+    <div className="card-wrapper">
+      <motion.div layout className="card" onClick={() => setIsOpen(!isOpen)}>
+        <motion.h2 layout="position">Card motion 🛵</motion.h2>
         {isOpen && (
-          <Content as={motion.div} layout>
+          <motion.div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Reiciendis consequatur sint obcaecati veritatis labore saepe eius
@@ -36,31 +41,11 @@ function App() {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Reiciendis consequatur sint?
             </p>
-          </Content>
+          </motion.div>
         )}
-      </Card>
-    </AppWrapper>
+      </motion.div>
+    </div>
   );
 }
-
-const AppWrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Card = styled(motion.div)`
-  background: white;
-  padding: 3rem 5rem;
-  border-radius: 0.5rem;
-`;
-
-const Content = styled(motion.div)`
-  p {
-    padding-top: 1rem;
-    line-height: 150%;
-  }
-`;
 
 export default App;
