@@ -1,15 +1,32 @@
 import { useState } from "react";
 import styled from "styled-components";
+
+// # Motion components
+// There's a `motion` component for every html/svg element, like `motion.div`
+// `circle` etc... These work exactly like their static counterparts, but they
+// offer you `props` that allow you to pass:
+// - Animate via a simple prop.
+// - Add drag, pan, hover and tap gestures.
+// - Respond to gestures with animations.
+// - Deeply animate throughout React component trees via `variants`.
+// https://www.framer.com/docs/component/
 import { motion } from "framer-motion";
+
+// # The layout prop and LayoutGroup
+// Group `motion` components that should perform **layout** animations together.
+// By default, `motion` components with a `layout` prop will attempt to detect
+// and animate layout changes every time they commit a React render.
+// But what happens when you have the case that components in different trees
+// affect each other's layout. See: https://www.framer.com/docs/layout-group/
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <AppWrapper>
-      <Card onClick={() => setIsOpen(!isOpen)}>
+      <Card as={motion.div} layout onClick={() => setIsOpen(!isOpen)}>
         <motion.h2>Card motion 🛵</motion.h2>
         {isOpen && (
-          <Content>
+          <Content as={motion.div} layout>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Reiciendis consequatur sint obcaecati veritatis labore saepe eius
