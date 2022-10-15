@@ -41,7 +41,11 @@ export default function Carousel() {
   // that we want as the allowed `dragConstraint`. Our right needs to be zero.
   // console.log(-width); /* controlled state we want (toggle) */
   return (
-    <motion.div ref={carousel} className="outer-carousel">
+    <motion.div
+      ref={carousel}
+      className="outer-carousel"
+      whileTap={{ cursor: "grabbing" }}
+    >
       <motion.div
         drag="x"
         // dragConstraints={{ left: -100, right: 100 }}
