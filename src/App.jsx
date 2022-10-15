@@ -1,12 +1,12 @@
-import Card from "./components/Card";
 import "./App.css";
+import Card from "./components/Card";
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
     <div className="wrapper">
-      <div className="box">
-        <Card />
-      </div>
+      {/* <Card /> */}
+      <Carousel />
     </div>
   );
 }
