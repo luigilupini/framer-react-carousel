@@ -5,11 +5,15 @@ import images from "../utils/images";
 
 export default function Carousel() {
   return (
-    <motion.div className="carousel">
+    <motion.div className="outer-carousel">
       <motion.div className="inner-carousel">
-        {images.map((image) => (
-          <img src={image} className="item" />
-        ))}
+        {images.map((image) => {
+          return (
+            <motion.div className="item">
+              <img src={image} alt="" />
+            </motion.div>
+          );
+        })}
       </motion.div>
     </motion.div>
   );
