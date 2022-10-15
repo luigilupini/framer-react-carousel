@@ -1,15 +1,16 @@
 .outer-carousel {
+  position: relative;
   cursor: grab;
   overflow: hidden; /* <- see effect (toggle) */
-  /* outer container (toggle) */
-  background: lightcoral;
+  /* outer container (toggle) to see area */
+  /* background: lightcoral; */
 }
 /* inner container is going to be overflowing */
 /* and the outer container prevents the bleeding out of content */
 .inner-carousel {
   display: flex;
-  /* inner container (toggle) */
-  background: lightblue;
+  /* inner container (toggle) to see area */
+  /* background: lightblue; */
 }
 
 .item {
@@ -25,4 +26,16 @@
   object-fit: cover;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.tag {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  z-index: 99;
 }

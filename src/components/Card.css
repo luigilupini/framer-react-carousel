@@ -1,6 +1,6 @@
 .card {
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.93);
+  background: rgba(255, 255, 255, 0.8);
   padding: 3rem 5rem;
   border-radius: 0.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
