@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import "./Card.css";
 
-// # Motion components
+// # Motion components:
 // There's a `motion` component for every html/svg element, like `motion.div`
 // `circle` etc... These work exactly like their static counterparts, but they
 // offer you `props` that allow you to pass:
@@ -12,14 +11,14 @@ import "./Card.css";
 // - Deeply animate throughout React component trees via `variants`.
 // https://www.framer.com/docs/component/
 
-// # Enter animations (initial prop)
+// # Enter animations (initial prop):
 // When a motion component is first created, it'll automatically animate to the
 // values in `animate` if they're different from those defined in your style or
 // within the `initial` prop. You can set the `initial` prop to false to disable
 // enter animations. For a list of the available props, see the following:
 // https://www.framer.com/docs/component/#props
 
-// # The layout prop and LayoutGroup
+// # The layout prop and LayoutGroup:
 // Group `motion` components that should perform **layout** animations together.
 // By default, `motion` components with a `layout` prop will attempt to detect
 // and animate layout changes every time they commit a React render.
@@ -32,11 +31,12 @@ import "./Card.css";
 // <div> to animate position, but not the scaling of size. We apply the layout
 // to all elements to `position`. Now that is the allow property animated.
 
-// # Transition
+// # Transition:
 // A `transition` prop defines how values animate from one state to another. It
 // defines the type of animation used when animating between two values. Below
 // we want to target the `layout` prop with a duration and type of spring.
 // https://www.framer.com/docs/transition/
+import { motion } from "framer-motion";
 
 export default function Card() {
   const [isOpen, setIsOpen] = useState(false);
