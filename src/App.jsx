@@ -5,8 +5,8 @@ import Carousel from "./components/Carousel";
 function App() {
   return (
     <div className="wrapper">
-      <Card />
-      {/* <Carousel /> */}
+      {/* <Card /> */}
+      <Carousel />
     </div>
   );
 }
